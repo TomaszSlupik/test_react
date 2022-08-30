@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import First from "./components/first";
 import Second from "./components/second";
 import Third from "./components/third";
 import Fourth from "./components/fourth";
+import Fifth from "./components/fifth";
+import Sixth from "./components/sixth";
 
 function Zaloguj() {
 	return <h1>Zaloguj się</h1>;
@@ -30,16 +32,26 @@ function App() {
 	let numbers = [0, 1, 2, 3, 4, 5, 6, 7];
 
 	let sports = [
-		{id:1, namesport: "⚽️"}, 
-		{id:2, namesport: "🤼‍♀️"}, 
-		{id:3, namesport: "🏇"}, 
-		{id:4, namesport: "⛷"}, 
-		]
+		{ id: 1, namesport: "⚽️" },
+		{ id: 2, namesport: "🤼‍♀️" },
+		{ id: 3, namesport: "🏇" },
+		{ id: 4, namesport: "⛷" },
+	];
 
-	let listsports = sports.map (sport => {
-		return <h3 key={sport.id}>{sport.namesport}</h3>
+	const clickSports = (evt) => {
+		console.log("Klinięto w sport");
+		console.log(evt);
+	};
+
+	let listsports = sports.map((sport) => {
+		return (
+			<h3 key={sport.id} onClick={() => clickSports(sport)}>
+				{sport.namesport}
+			</h3>
+		);
 	});
 
+	
 
 	return (
 		<div>
@@ -47,6 +59,7 @@ function App() {
 			<Second imie={myname} sports={tri} />
 			<Third imie={myname} meal={dish} />
 			<Fourth item={drink} city={mycity} />
+			
 			<h2>Instrukcja warunkowa</h2>
 			{tri === "Triathlon" ? "Tak to prawa" : "Nie"}
 
@@ -64,9 +77,10 @@ function App() {
 				{numbers.map((number) => {
 					return <h3>{number}</h3>;
 				})}
-
 			</div>
 			<div>{listsports}</div>
+			<Fifth />
+			<Sixth />
 		</div>
 	);
 }
