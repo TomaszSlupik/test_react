@@ -6,6 +6,7 @@ import Third from "./components/third";
 import Fourth from "./components/fourth";
 import Fifth from "./components/fifth";
 import Sixth from "./components/sixth";
+import Eight from "./components/eight";
 
 function Zaloguj() {
 	return <h1>Zaloguj się</h1>;
@@ -81,7 +82,10 @@ function App() {
 			<div>{listsports}</div>
 			<Fifth />
 			<Sixth />
-		</div>
+			<Eight />
+	
+
+			</div>
 	);
 }
 
